@@ -22,12 +22,6 @@ on:
         required: true
         default: false
 
-      tweak_url:
-        description: "URL to the YouTube Plus tweak file"
-        default: ""
-        required: true
-        type: string
-
       enable_ryd:
         description: "Integrate Return YouTube Dislikes"
         type: boolean
