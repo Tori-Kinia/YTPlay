@@ -1,4 +1,4 @@
-name: '[BETA] Create YouTube Plus app'
+name: 'Create YYTPlay from links'
 
 on:
   workflow_dispatch:
@@ -21,6 +21,12 @@ on:
         type: boolean
         required: true
         default: false
+
+      tweak_url:
+        description: "URL to the YouTube Plus tweak file"
+        default: ""
+        required: true
+        type: string
 
       enable_ryd:
         description: "Integrate Return YouTube Dislikes"
@@ -57,12 +63,6 @@ on:
         default: "com.google.ios.youtube"
         required: true
         type: string
-
-      info_note:
-        description: "TIP: Learn more about integrations in the README via the link below"
-        default: "https://github.com/dayanch96/YTLite#tweak-integration-details"
-        type: string
-        required: false
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
@@ -220,6 +220,12 @@ jobs:
           cd ${{ github.workspace }}
           git clone --quiet --depth=1 https://github.com/PoomSmart/YouQuality.git
 
+      - name: Clone YouLoop
+        if: ${{ inputs.enable_ytlo }}        
+        run: |
+          cd ${{ github.workspace }}
+          git clone --quiet --depth=1 https://github.com/kamtch/YouLoop.git
+
       - name: Clone YTVideoOverlay
         if: ${{ inputs.enable_yq || inputs.enable_youpip }}
         run: |
@@ -277,6 +283,15 @@ jobs:
         env:
           THEOS: ${{ github.workspace }}/theos
 
+      - name: Build YouLoop
+        if: ${{ inputs.enable_ytlo }}
+        run: |
+          cd ${{ github.workspace }}/YouLoop
+          make clean package DEBUG=0 FINALPACKAGE=1
+          mv packages/*.deb ${{ github.workspace }}/ytlo.deb
+        env:
+          THEOS: ${{ github.workspace }}/theos
+
       - name: Build YTVideoOverlay
         if: ${{ inputs.enable_yq || inputs.enable_youpip }}
         run: |
@@ -299,7 +314,7 @@ jobs:
         run: |
           tweaks="ytplus.deb OpenYoutubeSafariExtension.appex"
 
-          for deb in youpip.deb ytuhd.deb ryd.deb ygs.deb yq.deb ytvo.deb demc.deb; do
+          for deb in youpip.deb ytuhd.deb ryd.deb ygs.deb yq.deb ytlo.deb ytvo.deb demc.deb; do
             if [ -f "$deb" ]; then
               tweaks="$tweaks $deb"
             fi
