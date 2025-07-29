@@ -22,6 +22,12 @@ on:
         required: true
         default: false
 
+      enable_ytlo:
+        description: "Integrate YouLoop"
+        type: boolean
+        required: true
+        default: true
+
       enable_ryd:
         description: "Integrate Return YouTube Dislikes"
         type: boolean
