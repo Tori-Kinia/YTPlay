@@ -8,7 +8,7 @@ on:
         description: "Integrate YouPiP"
         type: boolean
         required: true
-        default: false
+        default: true
 
       enable_ytuhd:
         description: "Integrate YTUHD"
@@ -20,7 +20,7 @@ on:
         description: "Integrate YouQuality"
         type: boolean
         required: true
-        default: false
+        default: true
         
       enable_ytlo:
         description: "Integrate YouLoop"
@@ -32,13 +32,13 @@ on:
         description: "Integrate Return YouTube Dislikes"
         type: boolean
         required: true
-        default: false
+        default: true
 
       enable_demc:
         description: "Integrate DontEatMyContent"
         type: boolean
         required: true
-        default: false
+        default: true
 
       ipa_url:
         description: "URL to the decrypted IPA file"
@@ -48,19 +48,19 @@ on:
 
       tweak_version:
         description: "The version of the tweak to use. Enter the version manually from dayanch96/YTLite/releases or leave default"
-        default: "5.2b2"
+        default: "5.2b3"
         required: true
         type: string
 
       display_name:
         description: "App Name (Optional)"
-        default: "YouTube"
+        default: "YouTube Play"
         required: true
         type: string
 
       bundle_id:
         description: "BundleID (Optional)"
-        default: "com.google.ios.youtube"
+        default: "com.google.ios.youtubeplay"
         required: true
         type: string
 
