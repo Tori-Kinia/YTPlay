@@ -42,7 +42,7 @@ on:
 
       ipa_url:
         description: "URL to the decrypted IPA file"
-        default: "https://www.dropbox.com/scl/fi/aa24nkojzk7pb1w2lroc0/com.google.ios.youtube_20.31.6_und3fined.ipa?rlkey=sq0jy0rkcf21vy0drdlaihxym&st=xo217r29&dl=1"
+        default: "https://www.dropbox.com/scl/fi/964h3rjh57rs5ttj9gekz/YouTube_20.32.4.ipa?rlkey=b61j77ahoqu1x0ht4jbadp394&st=tdtdnd0o&dl=1"
         required: true
         type: string
 
