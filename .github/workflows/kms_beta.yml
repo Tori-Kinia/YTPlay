@@ -42,7 +42,7 @@ on:
 
       ipa_url:
         description: "URL to the decrypted IPA file"
-        default: "https://www.dropbox.com/scl/fi/964h3rjh57rs5ttj9gekz/YouTube_20.32.4.ipa?rlkey=b61j77ahoqu1x0ht4jbadp394&st=tdtdnd0o&dl=1"
+        default: ""
         required: true
         type: string
 
@@ -54,13 +54,13 @@ on:
 
       display_name:
         description: "App Name (Optional)"
-        default: "YouTube Play"
+        default: "YouTube"
         required: true
         type: string
 
       bundle_id:
         description: "BundleID (Optional)"
-        default: "com.google.ios.youtubeplay"
+        default: "com.google.ios.youtube"
         required: true
         type: string
 
@@ -140,7 +140,7 @@ jobs:
       - name: Download YouTube Plus
         id: download_ytp
         run: |
-          deb_url="https://github.com/dayanch96/YTLite/releases/download/v${{ inputs.tweak_version }}/com.dvntm.ytlite_${{ inputs.tweak_version }}_iphoneos-arm.deb"
+          deb_url="https://github.com/dayanch96/YTLite/releases/download/v${{ inputs.tweak_version }}/com.dvntm.ytlite_${{ inputs.tweak_version }}_iphoneos-arm64.deb"
           wget "$deb_url" --no-verbose -O ${{ github.workspace }}/ytplus.deb
           
       - name: Clone Open in YouTube (Safari extension)
