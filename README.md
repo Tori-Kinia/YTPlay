@@ -1,4 +1,4 @@
-# YTPlus (ex. YTLite)
+# YTPlus
 A flexible enhancer for YouTube on iOS, featuring over hundred customizable options.
 
 ## Tweak Integration Details
