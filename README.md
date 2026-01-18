@@ -4,11 +4,10 @@ A flexible enhancer for YouTube on iOS, featuring over hundred customizable opti
 ## Tweak Integration Details
 <details>
   <summary>YouTube Plus</summary>
-  <p>YouTube Plus is a tweak developed by <a href="https://github.com/PoomSmart">PoomSmart</a> that enables the native Picture-in-Picture feature for videos in the iOS YouTube app.</p>
-  <p><strong>YouPiP preferences</strong> are available in the <strong>YouTube settings</strong>.</p>
-  <p>Source code and additional information are available <a href="https://github.com/PoomSmart/YouPiP">in PoomSmart's GitHub repository</a>.</p>
+  <p>YouTube Plus is a tweak developed by <a href="https://github.com/dayanch96/YTLite">dayanch96</a> that includes a additional features for iOS YouTube app.</p>
+  <p><strong>YouTube Plus preferences</strong> are available in the <strong>YouTube settings</strong>.</p>
+  <p>Source code and additional information are available <a href="https://github.com/dayanch96/YTLite">in dayanch96's GitHub repository</a>.</p>
 </details>
-
 
 <details>
   <summary>YouPiP</summary>
