@@ -188,11 +188,11 @@ jobs:
       - name: Clone Gonerino
         run: |
           if [ -d "$THEOS/include/Gonerino" ]; then
-            echo "PSHeader exists. Pulling latest changes..."
+            echo "Gonerino exists. Pulling latest changes..."
             cd $THEOS/include/Gonerino
             git pull
           else
-            echo "PSHeader does not exist. Cloning repository..."
+            echo "Gonerino does not exist. Cloning repository..."
             cd $THEOS/include
             git clone --quiet --depth=1 https://github.com/castdrian/Gonerino.git
           fi
@@ -293,7 +293,6 @@ jobs:
           THEOS: ${{ github.workspace }}/theos
 
       - name: Build Gonerino
-        if: ${{ inputs.enable_demc }}
         run: |
           cd ${{ github.workspace }}/Gonerino
           make clean package DEBUG=0 FINALPACKAGE=1
