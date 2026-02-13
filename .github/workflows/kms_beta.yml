@@ -185,6 +185,20 @@ jobs:
         env:
           THEOS: ${{ github.workspace }}/theos
 
+      - name: Clone Gonerino
+        run: |
+          if [ -d "$THEOS/include/Gonerino" ]; then
+            echo "PSHeader exists. Pulling latest changes..."
+            cd $THEOS/include/Gonerino
+            git pull
+          else
+            echo "PSHeader does not exist. Cloning repository..."
+            cd $THEOS/include
+            git clone --quiet --depth=1 https://github.com/castdrian/Gonerino.git
+          fi
+        env:
+          THEOS: ${{ github.workspace }}/theos
+
       - name: Clone YouPiP
         if: ${{ inputs.enable_youpip }}
         run: |
@@ -277,6 +291,15 @@ jobs:
           mv packages/*.deb ${{ github.workspace }}/yq.deb
         env:
           THEOS: ${{ github.workspace }}/theos
+
+      - name: Build Gonerino
+        if: ${{ inputs.enable_demc }}
+        run: |
+          cd ${{ github.workspace }}/Gonerino
+          make clean package DEBUG=0 FINALPACKAGE=1
+          mv packages/*.deb ${{ github.workspace }}/gon.deb
+        env:
+          THEOS: ${{ github.workspace }}/theos
           
       - name: Build YouLoop
         if: ${{ inputs.enable_ytlo }}
@@ -309,7 +332,7 @@ jobs:
         run: |
           tweaks="ytplus.deb OpenYoutubeSafariExtension.appex"
 
-          for deb in youpip.deb ytuhd.deb ryd.deb ygs.deb yq.deb ytlo.deb ytvo.deb demc.deb; do
+          for deb in youpip.deb ytuhd.deb ryd.deb ygs.deb yq.deb gon.deb ytlo.deb ytvo.deb demc.deb; do
             if [ -f "$deb" ]; then
               tweaks="$tweaks $deb"
             fi
