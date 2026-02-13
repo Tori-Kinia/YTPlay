@@ -187,17 +187,8 @@ jobs:
 
       - name: Clone Gonerino
         run: |
-          if [ -d "$THEOS/include/Gonerino" ]; then
-            echo "Gonerino exists. Pulling latest changes..."
-            cd $THEOS/include/Gonerino
-            git pull
-          else
-            echo "Gonerino does not exist. Cloning repository..."
-            cd $THEOS/include
-            git clone --quiet --depth=1 https://github.com/castdrian/Gonerino.git
-          fi
-        env:
-          THEOS: ${{ github.workspace }}/theos
+          cd ${{ github.workspace }}
+          git clone --quiet --depth=1 https://github.com/castdrian/Gonerino.git
 
       - name: Clone YouPiP
         if: ${{ inputs.enable_youpip }}
