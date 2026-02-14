@@ -43,3 +43,10 @@ A flexible enhancer for YouTube on iOS, featuring over hundred customizable opti
   <p><strong>DontEatMyContent preferences</strong> are available in the <strong>YouTube settings</strong>.</p>
   <p>Source code and additional information are available <a href="https://github.com/therealFoxster/DontEatMyContent">in therealFoxster's GitHub repository</a>.</p>
 </details>
+
+<details>
+  <summary>Gonerino</summary>
+  <p>Gonerino is a tweak developed by <a href="https://github.com/castdrian/Gonerino">castdrian</a> to filter out unwanted content in the iOS YouTube app.</p>
+  <p><strong>Gonerino preferences</strong> are available in the <strong>YouTube settings</strong>.</p>
+  <p>Source code and additional information are available <a href="https://github.com/castdrian/Gonerino">in castdrian's GitHub repository</a>.</p>
+</details>
